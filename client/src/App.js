@@ -35,14 +35,14 @@ class App extends Component {
         this.fetchIndexes();
     }
     fetchValues = async () => {
-        const values = await Axios.get('api/values/current');
+        const values = await Axios.get('/api/values/current');
         this.setState({
             values: values.data,
         })
     };
 
     fetchIndexes = async () => {
-        const seenIndexes = await Axios.get('api/values/all');
+        const seenIndexes = await Axios.get('/api/values/all');
         this.setState({
             seenIndexes: seenIndexes.data,
         });
@@ -80,10 +80,10 @@ class App extends Component {
                     <button type='submit'>submit</button>
                 </form>
                 <h3>Indexes i have seen:</h3>
-                <p>{this.state.seenIndexes.length===0?<div>No Indexes seen</div>:this.state.seenIndexes.join(',')}</p>
+                <div>{this.state.seenIndexes.length===0?<div>No Indexes seen</div>:this.state.seenIndexes.map(({number})=> number).join(',')}</div>
 
                 <h3>calculated values</h3>
-                <p>{this.renderValues()}</p>
+                <div>{this.renderValues()}</div>
             </div>
             
         )
