@@ -1,0 +1,16 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "this will watch the redis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "author": "pramod singh",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.2",
+    "redis": "^2.8.0"
+  }
+}
